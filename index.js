@@ -13,11 +13,12 @@ app.get('/', (rep, res) => {
 
 io.on('connection', (socket) => {
     socket.on('chat message', msg => {
+        console.log(msg);
         io.emit('chat message', msg);
     });
-    socket.on("disconnect", () => {
-        console.log("a user disconnected!");
-    });
+    // socket.on("disconnect", () => {
+    //     console.log("a user disconnected!");
+    // });
 });
 
 server.listen(port, () => {
